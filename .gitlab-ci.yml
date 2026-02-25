@@ -19,6 +19,7 @@ test-job2:
     - echo "which simulates a test that runs 20 seconds longer than test-job1"
     - sleep 20
 
+
 deploy-prod:
   stage: deploy
   script:
@@ -27,9 +28,9 @@ deploy-prod:
 
 pages:
   image: peaceiris/mdbook:v0.5.0
+    name: mdbook
+    entrypoint: ["mdbook build main-mdbook"]
   stage: deploy
-  script:
-    - mdbook build main-mdbook
   artifacts:
     paths:
     - public
