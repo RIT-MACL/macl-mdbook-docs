@@ -26,11 +26,11 @@ deploy-prod:
   environment: production
 
 pages:
-  shell: bash
   image: peaceiris/mdbook:v0.5.0
   stage: deploy
   script:
-  - mdbook build main-mdbook
+    - mdbook build main-mdbook
+  shell: bash
   artifacts:
     paths:
     - public
