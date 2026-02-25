@@ -30,7 +30,6 @@ pages:
   stage: deploy
   script:
     - mdbook build main-mdbook
-  shell: bash
   artifacts:
     paths:
     - public
