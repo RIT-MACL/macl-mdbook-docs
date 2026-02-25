@@ -26,6 +26,7 @@ deploy-prod:
   environment: production
 
 pages:
+  image: peaceiris/mdbook:v0.5.0
   stage: deploy
   script:
   - mdbook build main-mdbook
