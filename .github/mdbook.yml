@@ -1,0 +1,16 @@
+on: push
+
+jobs:      
+  mdbook-build-and-publish:
+    steps:
+      - name: Checkout App
+        uses: actions/checkout@v2
+
+      - name: Run MDBOOK
+        uses: ghcr.io/stephengolub/mdbook-builder:latest
+        run: |
+          mdbook build
+
+      - name: Publish
+        run: |
+          echo "hello"
