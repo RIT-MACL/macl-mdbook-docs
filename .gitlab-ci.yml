@@ -1,5 +1,5 @@
 default:
-  image: peaceiris/mdbook:v0.5.0-rust
+  image: ghcr.io/peaceiris/mdbook:v0.4.0-rust
 
 build-job:
   stage: build
@@ -26,13 +26,8 @@ deploy-prod:
     - echo "This job deploys something from the $CI_COMMIT_BRANCH branch."
   environment: production
 
-pages:
-  image: peaceiris/mdbook:v0.5.0
-    name: mdbook
-    entrypoint: ["mdbook build main-mdbook"]
+deploy-pages:
   stage: deploy
-  artifacts:
-    paths:
-    - public
-  only:
-  - main
+  script:
+    - mdbook build
+
